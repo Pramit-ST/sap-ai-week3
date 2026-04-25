@@ -1,0 +1,29 @@
+{
+  "name": "sap-ai-week3",
+  "version": "1.0.0",
+  "description": "CAP Node.js service with LLM and Embeddings via Ollama",
+  "main": "index.js",
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds watch"
+  },
+  "dependencies": {
+    "@sap/cds": "^8.0.0"
+  },
+  "devDependencies": {
+    "@sap/cds-dk": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": ":memory:"
+        }
+      }
+    }
+  }
+}

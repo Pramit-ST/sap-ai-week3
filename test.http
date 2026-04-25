@@ -1,0 +1,7 @@
+
+POST http://localhost:4004/odata/v4/Chat/ask
+Content-Type: application/json
+
+{
+  "question": "What is the capital of Mumbai"
+}
