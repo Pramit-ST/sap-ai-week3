@@ -1,0 +1,7 @@
+{
+  "xsappname": "sap-ai-week3",
+  "tenant-mode": "dedicated",
+  "description": "SAP AI Week 3 - CAP LLM and Embeddings",
+  "scopes": [],
+  "role-templates": []
+}

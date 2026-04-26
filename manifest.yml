@@ -1,0 +1,13 @@
+---
+applications:
+  - name: sap-ai-week3-srv
+    path: gen/srv
+    buildpacks:
+      - nodejs_buildpack
+    memory: 256M
+    instances: 1
+    services:
+      - sap-ai-week3-db
+      - sap-ai-week3-uaa
+    env:
+      NODE_ENV: production

@@ -1,7 +1,155 @@
-
-POST http://localhost:4004/odata/v4/Chat/ask
+### Ticket 1
+POST http://localhost:4004/odata/v4/search/Tickets
 Content-Type: application/json
 
 {
-  "question": "What is the capital of Mumbai"
+  "ID": "e001",
+  "title": "ABAP dump after transport",
+  "description": "System throws short dump after TR import to PRD",
+  "status": "open",
+  "priority": "high"
+}
+
+###
+
+### Ticket 2
+POST http://localhost:4004/odata/v4/search/Tickets
+Content-Type: application/json
+
+{
+  "ID": "e002",
+  "title": "Invoice stuck in approval",
+  "description": "Purchase invoice not moving past manager approval step",
+  "status": "open",
+  "priority": "medium"
+}
+
+###
+
+### Ticket 3
+POST http://localhost:4004/odata/v4/search/Tickets
+Content-Type: application/json
+
+{
+  "ID": "e003",
+  "title": "Payment run F110 terminating",
+  "description": "Automatic payment run terminates with RABAX_STATE dump",
+  "status": "open",
+  "priority": "high"
+}
+
+###
+
+### Ticket 4
+POST http://localhost:4004/odata/v4/search/Tickets
+Content-Type: application/json
+
+{
+  "ID": "e004",
+  "title": "User cannot log into Fiori",
+  "description": "Authentication error on Fiori launchpad after role change",
+  "status": "open",
+  "priority": "high"
+}
+
+###
+
+### Ticket 5
+POST http://localhost:4004/odata/v4/search/Tickets
+Content-Type: application/json
+
+{
+  "ID": "e005",
+  "title": "GR IR account not clearing",
+  "description": "Goods receipt posted but invoice receipt not matching in MR11",
+  "status": "open",
+  "priority": "medium"
+}
+
+### Embedding 1
+POST http://localhost:4004/odata/v4/search/generateEmbedding
+Content-Type: application/json
+
+{
+  "ID": "e001"
+}
+
+###
+
+### Embedding 2
+POST http://localhost:4004/odata/v4/search/generateEmbedding
+Content-Type: application/json
+
+{
+  "ID": "e002"
+}
+
+###
+
+### Embedding 3
+POST http://localhost:4004/odata/v4/search/generateEmbedding
+Content-Type: application/json
+
+{
+  "ID": "e003"
+}
+
+###
+
+### Embedding 4
+POST http://localhost:4004/odata/v4/search/generateEmbedding
+Content-Type: application/json
+
+{
+  "ID": "e004"
+}
+
+###
+
+### Embedding 5
+POST http://localhost:4004/odata/v4/search/generateEmbedding
+Content-Type: application/json
+
+{
+  "ID": "e005"
+} 
+
+### Search 1 — Finance related
+POST http://localhost:4004/odata/v4/search/semanticSearch
+Content-Type: application/json
+
+{
+  "query": "billing document not clearing",
+  "topK": 3
+}
+
+### Search — login issue
+POST http://localhost:4004/odata/v4/search/semanticSearch
+Content-Type: application/json
+
+{
+  "query": "user cannot access the system",
+  "topK": 3
+}
+
+###
+
+### Search — payment issue  
+POST http://localhost:4004/odata/v4/search/semanticSearch
+Content-Type: application/json
+
+{
+  "query": "money transfer not working",
+  "topK": 3
+}
+
+###
+
+### Search — technical error
+POST http://localhost:4004/odata/v4/search/semanticSearch
+Content-Type: application/json
+
+{
+  "query": "system crash in production",
+  "topK": 3
 }

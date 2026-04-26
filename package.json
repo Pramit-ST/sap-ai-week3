@@ -8,10 +8,13 @@
     "watch": "cds watch"
   },
   "dependencies": {
-    "@sap/cds": "^8.0.0"
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9.8.0",
+    "@sap/xssec": "^4.13.0",
+    "passport": "^0.7.0"
   },
   "devDependencies": {
-    "@sap/cds-dk": "^8.0.0"
+    "@sap/cds-dk": "^9.0.0"
   },
   "engines": {
     "node": ">=20"
@@ -19,9 +22,18 @@
   "cds": {
     "requires": {
       "db": {
-        "kind": "sqlite",
-        "credentials": {
-          "database": ":memory:"
+        "kind": "hana",
+        "pool": {
+          "acquireTimeoutMillis": 60000,
+          "createTimeoutMillis": 30000,
+          "destroyTimeoutMillis": 5000,
+          "idleTimeoutMillis": 30000,
+          "reapIntervalMillis": 1000,
+          "min": 0,
+          "max": 10
+        },
+        "auth": {
+          "kind": "xsuaa"
         }
       }
     }

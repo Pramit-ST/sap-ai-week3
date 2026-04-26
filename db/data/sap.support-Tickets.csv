@@ -1,0 +1,11 @@
+ID,title,description,status,priority
+t001,ABAP dump after transport,System throws short dump after TR import to PRD,open,high
+t002,Invoice stuck in approval,Purchase invoice not moving past manager approval step,open,medium
+t003,User cannot log into Fiori,Authentication error on Fiori launchpad after role change,closed,high
+t004,Material master missing plant data,MM60 shows no plant segment for material 4000123,open,low
+t005,Batch job failed in production,SM37 shows ABAP job ZPAYROLL_RUN cancelled with error,open,high
+t006,Payment run F110 terminating,Automatic payment run terminates with RABAX_STATE dump,open,high
+t007,GR IR account not clearing,Goods receipt posted but invoice receipt not matching in MR11,open,medium
+t008,BAdI not triggering in sales order,Custom BAdI not firing during VA01 creation for order type ZOR,open,medium
+t009,Cost center locked in controlling,CO postings failing due to locked cost center in current period,open,low
+t010,Workflow not triggering on PO release,Purchase order release workflow not starting after approval config,open,medium

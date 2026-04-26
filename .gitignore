@@ -3,3 +3,5 @@ node_modules/
 default-env.json
 gen/
 .DS_Store
+# added by cds
+.cdsrc-private.json
