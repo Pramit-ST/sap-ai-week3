@@ -1,22 +1,74 @@
-# Getting Started
+# SAP AI Week 3 — CAP + LLM + Embeddings + HANA Cloud
 
-Welcome to your new CAP project.
+## What This Project Does
+A CAP Node.js service deployed on SAP BTP that demonstrates
+two core Gen AI integration patterns for enterprise SAP systems.
 
-It contains these folders and files, following our recommended project layout:
+## Build 1 — LLM Chat via CAP
+Ask any question in plain English and get an LLM response
+flowing through a CAP OData action.
 
-File or Folder | Purpose
----------|----------
-`app/` | content for UI frontends goes here
-`db/` | your domain models and data go here
-`srv/` | your service models and code go here
-`readme.md` | this getting started guide
+- CAP action receives natural language question
+- Ollama llama3.2 generates the answer
+- Response returned via OData
 
-## Next Steps
+## Build 2 — Semantic Search with Embeddings + HANA Cloud
+Search SAP support tickets by meaning — not by keywords.
+"billing document not clearing" finds "GR IR account not clearing"
+even though the words are completely different.
 
-- Open a new terminal and run `cds watch`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start with your domain model, in a CDS file in `db/`
+- Text converted to vectors via nomic-embed-text
+- Vectors stored in SAP HANA Cloud embedding column
+- HANA COSINE_SIMILARITY() finds semantically similar tickets
+- Results ranked by similarity score
 
-## Learn More
+## Coming in Week 4 — RAG
+Combining Build 1 and Build 2:
+- HANA finds relevant tickets semantically
+- LLM reads them and generates a human answer
+- Grounded in real SAP historical data
 
-Learn more at <https://cap.cloud.sap>.
+## Tech Stack
+- SAP CAP Node.js
+- SAP HANA Cloud (BTP Trial)
+- Ollama (local AI runtime)
+- llama3.2 (LLM model)
+- nomic-embed-text (embedding model)
+- Cloud Foundry (BTP deployment)
+- XSUAA (authentication)
+
+## Architecture
+User question
+      ↓
+CAP OData action (srv/)
+      ↓
+Ollama embedding model (localhost:11434)
+      ↓
+HANA COSINE_SIMILARITY search
+      ↓
+Ranked results returned
+
+## How to Run Locally
+- Install dependencies: npm install
+- Start Ollama: ollama serve
+- Pull models:
+    ollama pull llama3.2
+    ollama pull nomic-embed-text
+- Bind HANA: cds bind -2 sap-ai-week3-db
+- Run: cds watch
+
+## How to Deploy to BTP
+- Build: cds build
+- Deploy: cf push
+
+## API Endpoints
+- POST /odata/v4/chat/ask
+- POST /odata/v4/search/Tickets
+- POST /odata/v4/search/generateEmbedding
+- POST /odata/v4/search/semanticSearch
+
+## Week 3 Learning Outcomes
+- Understood difference between LLM and embedding model
+- Built semantic search on real HANA Cloud
+- Deployed CAP + HANA + XSUAA to BTP Cloud Foundry
+- Understood RAG foundation — retrieval without generation
