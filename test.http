@@ -159,7 +159,7 @@ POST http://localhost:4004/odata/v4/rag/askTickets
 Content-Type: application/json
 
 {
-  "question": "Why did the purchase order approval fail?"
+  "question": "What is an animal?"
 }
 
 ### Test RAG — Different question
