@@ -153,3 +153,27 @@ Content-Type: application/json
   "query": "system crash in production",
   "topK": 3
 }
+
+### Test RAG — SAP Ticket Question
+POST http://localhost:4004/odata/v4/rag/askTickets
+Content-Type: application/json
+
+{
+  "question": "Why did the purchase order approval fail?"
+}
+
+### Test RAG — Different question
+POST http://localhost:4004/odata/v4/rag/askTickets
+Content-Type: application/json
+
+{
+  "question": "Are there any high priority open tickets?"
+}
+
+### Test RAG — Another angle
+POST http://localhost:4004/odata/v4/rag/askTickets
+Content-Type: application/json
+
+{
+  "question": "What issues are related to workflow?"
+}
